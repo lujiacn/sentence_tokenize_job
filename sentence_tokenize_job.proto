@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+/*option java_multiple_files = true;*/
+/*option objc_class_prefix = "HLW";*/
+
+
+service TokenizeJob {
+  rpc tokenize_stream (stream TokenizeRequest) returns (stream TokenizeReply) {}
+}
+
+message TokenizeRequest {
+  string language = 1;
+  string ids = 2;
+  string paragraph = 3;
+}
+
+
+message TokenizeReply {
+  string ids = 1;
+  repeated string sentences = 2;
+}
+
